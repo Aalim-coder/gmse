@@ -1,0 +1,231 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Scroll bar */
+  /* width */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 5px grey; */
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background:rgb(0, 59, 253) ;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  
+  }
+  
+  /****************************************/
+  html {
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  body {
+    background: #eee;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  header {
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(2, 0, 36, 1) 0%, rgb(0, 59, 253) 83%);
+    padding: 16px 32px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position:sticky;
+    left: 0;
+    right:0;
+    top:0;
+    
+  }
+  
+  header h1 {
+    color: #fff;
+    font-family: "McLaren", cursive;
+    font-weight: 200;
+  }
+  
+  footer {
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 80px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    margin-top: 100px;
+  
+    position: relative;
+  }
+  
+  .footer-text-heading {
+    font-weight: 800;
+    font-size: 30px;
+    padding-bottom: 20px;
+  }
+  
+  .footer-text {
+    font-family: "Montserrat", sans-serif;
+    color: #454647;
+    display: flex;
+    font-size: 16px;
+    line-height: 30px;
+    flex-direction: column;
+  
+  }
+  
+  .footer-text-bottom {
+    font-size: 12px;
+    position: absolute;
+    bottom: 20px;
+    left: 46%;
+  }
+  
+  .footer-uni img {
+    width: 500px;
+  }
+  
+  
+  .cardBody {
+    display: flex;
+    flex-direction: row;
+    background-color: #FEFAF6;
+    column-gap: 20px;
+    width: fit-content;
+  
+    height: fit-content;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 1px 5px rgb(138, 137, 137);
+  
+  }
+  
+  .cardBody:hover {
+    cursor: pointer;
+  }
+  
+  .cardBody-left img {
+    width: 150px;
+    height: 190px;
+  }
+  
+  .cardBody-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .cardBody-right-top {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+  }
+  
+  .cardBody-name {
+    font-weight: 800;
+  
+    font-size: 20px;
+    line-height: 1.3em;
+    max-height: 2.8em;
+    overflow: hidden;
+  
+    text-overflow: ellipsis;
+    /* This is where the magic happens. */
+  }
+  
+  .cardBody-price {
+    font-size: 20px;
+  }
+  
+  .cardBody-rating {
+    display: flex;
+    flex-direction: row;
+    column-gap: 12px;
+    align-items: center;
+  }
+  
+  .cardBody-rating-star {
+    font-size: 15px;
+  }
+  
+  .cardBody-rating-count {
+    font-size: 10px;
+  }
+  
+  .cardMaker {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row: auto auto;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    height: fit-content;
+    overflow: hidden;
+  }
+  .search-input {
+    flex: 1; 
+    border: 2px;
+    outline: none;
+    background: none;
+    font-size: 16px; 
+    padding: 8px; 
+    width: 600px;
+    height: 40px;
+    display: flex;
+    justify-content: right;
+    border:1px solid white;
+    color: white;
+    border-radius: 8px;
+  }
+  .spinner{
+    width: 100dvw;
+    height: 50dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 1s linear infinite
+  }
+  .loader::before , .loader::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 5px solid #FFF;
+    animation: prixClipFix 2s linear infinite ;
+  }
+  .loader::after{
+    border-color: rgb(0, 59, 253) ;
+    animation: prixClipFix 2s linear infinite , rotate 0.5s linear infinite reverse;
+    inset: 6px;
+  }
+
+  @keyframes rotate {
+    0%   {transform: rotate(0deg)}
+    100%   {transform: rotate(360deg)}
+  }
+
+  @keyframes prixClipFix {
+      0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+      25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+      50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+      75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+      100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+  }
